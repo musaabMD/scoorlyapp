@@ -3,7 +3,7 @@ import { getSEOTags } from "@/libs/seo";
 import ClientLayout from "@/components/LayoutClient";
 import config from "@/config";
 import "./globals.css";
-
+import { Analytics } from "@vercel/analytics/react"
 const font = Inter({ subsets: ["latin"] });
 
 export const viewport = {
@@ -26,7 +26,8 @@ export default function RootLayout({ children }) {
 		>
 			<body>
 				{/* ClientLayout contains all the client wrappers (Crisp chat support, toast messages, tooltips, etc.) */}
-				<ClientLayout>{children}</ClientLayout>
+				<ClientLayout>{children}         <Analytics />
+ 				</ClientLayout>
 			</body>
 		</html>
 	);

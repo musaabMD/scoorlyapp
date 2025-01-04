@@ -386,8 +386,10 @@
 // }
 // 
 // app/page.js
+import HomeHero from "@/components/Content/Homehero";
 import { createClient } from "../libs/supabase/server";
 import ExamList from "@/components/ExamList";
+
 
 export default async function Home() {
   const supabase = createClient();
@@ -404,11 +406,14 @@ export default async function Home() {
     }
 
     return (
+
+      <>
+   
+    
       <main className="min-h-screen  text-gray-900 p-6">
         {/* Hero Section */}
-        <div className="container mx-auto px-4 py-16">
       <div className="text-center mb-10">
-                <div className="flex justify-center mb-6">
+                {/* <div className="flex justify-center mb-6">
                   <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center transform rotate-12 hover:rotate-0 transition-transform duration-300">
                     <span className="text-5xl font-bold text-white">S</span>
                   </div>
@@ -420,16 +425,21 @@ export default async function Home() {
                 <br />
 
                 <p className="text-xl text-gray-600">Connect with 50,000+ fellow travelers worldwide!</p>
-              </div>
-      
+              </div> */}
+<HomeHero/>      
         </div>
 
         {/* Exam List */}
         <ExamList initialExams={exams || []} />
+      
+    
       </main>
+
+      </>
     );
   } catch (err) {
     console.error("Error:", err.message);
     return <p>Failed to load exams. Please try again later.</p>;
   }
+  
 }
